@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<div class="text-center">
+    <h1> Draw Lots Online <small>By Cui Chen</small></h1>
+    <hr />
+</div>
+检验链接 Demo：<a href="http://drawlots.online/verify/id/DEMO">http://drawlots.online/verify/id/DEMO</a> </li>
+<h2> 试一试 </h2>
+<form class="form" method="POST">
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.randtype) }}
+    <div class="text-center">
+        {{ wtf.form_field(form.submit) }}
+    </div>
+</form>
+<h2> About this Project </h2>
+<div class="panel panel-info">
+  <div class="panel-heading">关于作者</div>
+  <div class="panel-body">
+        <ul>
+            <li>崔晨</li>
+            <li>山东大学计算机科学与技术学院</li>
+            <li>学号: 201605130115</li>
+            <li>博客地址: <a href="http://cuichen.cc">http://cuichen.cc</a> </li>
+        </ul>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">想法来源</div>
+  <div class="panel-body">
+    <p>
+    某天在班级群里被@，点开发现班长说“被@到的同学去听讲座”，但又看见其他同学在说，“取个随机数吧，‘教授’一行py就能解决”，然后我就傻傻的写出了下面的一行Python:<br />
+    <code>print(__import__('random').sample(list(range(0, 40)), 8))</code><br />
+    满心欢喜以为自己跑的程序不会把自己选进去，把结果发布到了群里，然后……<br />
+    我被选进去了！！班长是从1开始数的数，GG……<br />
+    </p>
+    <p>
+    之前还有一次是在高级语言程序设计课程设计课上，要考试了，老师要从100道题目中抽出10道题目，我也用Python写了两行……<br />
+    举这两个例子的目的是为了表现抽签在日常生活中非常普遍，但是如何做到公平合理的抽签确是很难，特别是在同学都没在一起的时候，在网上，群里，如何做到公平的抽签呢？<br />
+    我觉得有一个思路很好，就是事先公布一个链接，设定一个时间，系统到那个时间自动进行进行抽取，将全体样本和抽取的样本进行公布，这样全员都能看到这个过程，公平性和合理性只取决于我的平台，只要能保证我平台的公平性和合理性即可。<br />
+    </p>
+  </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-heading">具体实现</div>
+  <div class="panel-body">
+        <ul>
+            <li>本项目由Python + Flask框架实现，前端框架使用Bootstrap</li>
+            <li>关于此项目的具体细节请访问作者的博客<a href="http://cuichen.cc/draw-lots-online/">Draw Lots Online - My Another Project</a></li>
+            <li>项目GitHub主页： <a href="https://github.com/ChenTsuei/Draw-Lots-Online">https://github.com/ChenTsuei/Draw-Lots-Online</a> </li>
+        </ul>
+        实现起来没遇到太大的困难，因为之前已经用Flask框架写过其他几个项目了，其中存在各种偷懒的痕迹，比如没用数据库，直接使用JSON文件保存数据，对于唯一的键值把起名这种麻烦事交给用户，总之就是我偷的懒越多，用户使用起来也就越不方便，不过基本的功能都已经完成了，课设的DDL也迫在眉睫，所以暂时没有太多时间优化，等到暑假里我会好好维护一下这个项目，具体添加的内容大概如下：<br />
+        <ul>
+            <li>界面的优化，我没有专门学过Web开发，因此这些东西也都是靠摸索，等有时间了细细优化一下界面，比如让输入框不要这么长；</li>
+            <li>时间选择框，现在偷了懒只能让用户自行输入时间和日期；</li>
+            <li>鲁棒性的提高，现在的代码完全建立在用户不出错的情况下，因此极有可能一下子就出问题，但是时间原因暂时没法去做，等暑假里会慢慢去修改.</li>
+        </ul>
+  </div>
+</div>
+{% endblock %}

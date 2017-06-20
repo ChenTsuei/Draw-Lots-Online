@@ -1,0 +1,26 @@
+{% extends "verify/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block type %} 随机抽取 {% endblock %}
+{% block type1 %} 随机抽取 {% endblock %}
+{% block type2 %} 随机抽取 {% endblock %}
+
+{% block specific_info %} 
+<h3> 成员列表 </h3>
+<ul class="list-group">
+    {% for line in lines %}
+        <li class="list-group-item">{{ line }}</a>
+    {% endfor %}
+</ul>
+<ul>
+    <li> 抽取 {{ data['num'] }} 个成员 </li>
+</ul>
+{% endblock %}
+
+{% block result %}
+    <ul class="list-group">
+    {% for line in data['num'] %}
+        <li class="list-group-item">{{ line }}</a>
+    {% endfor %}
+</ul>
+{% endblock %}

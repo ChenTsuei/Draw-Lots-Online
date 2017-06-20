@@ -1,0 +1,8 @@
+{% extends "base_wtf.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}抛硬币{% endblock %}
+
+{% block form %}
+{{ wtf.form_field(form.num) }}
+{% endblock %}

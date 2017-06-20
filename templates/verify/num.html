@@ -1,0 +1,19 @@
+{% extends "verify/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block type %} 选数字 {% endblock %}
+{% block type1 %} 选数字 {% endblock %}
+{% block type2 %} 选数字 {% endblock %}
+
+{% block specific_info %} 
+<ul>
+    <li> 开始于：{{ data['start'] }} </li>
+    <li> 结束于：{{ data['end'] }} </li>
+    <li> 选取的数字个数：{{ data['num'] }} </li>
+    <li> 是否允许重复：{% if data['distinct'] %}是{% else %}否{% endif %} </li>
+</ul>
+{% endblock %}
+
+{% block result %}
+    {{ data['result'] }}
+{% endblock %}

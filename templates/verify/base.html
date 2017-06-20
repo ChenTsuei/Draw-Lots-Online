@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} 结果检验 - {% block type %} {% endblock %} {% endblock %}
+
+{% block page_content %}
+<div class="text-center">
+    <h1> 结果检验 - {% block type1 %} {% endblock %} </h1>
+    <hr />
+</div>
+<h2> 详细信息 </h2>
+<ul>
+    <li> 抽签类型：{% block type2 %} {% endblock %} </li>
+    <li> 描述：{{ data['description'] }} </li>
+    <li> URL：<a href="{{ url_for('verify_id', url=data['url'], _external=True) }}">{{ url_for('verify_id', url=data['url'], _external=True) }}</a> </li>
+    <li> 创建时间：{{ data['date'] }} </li>
+    <li> 抽签时间：{{ data['sched'] }} </li>
+</ul>
+{% block specific_info %} {% endblock %}
+<hr />
+<h2> 结果 </h2>
+{% if data['done'] %}
+    {% block result %} {% endblock %}
+{% else %}
+    结果尚未公布，敬请期待！
+{% endif %}
+{% endblock %}

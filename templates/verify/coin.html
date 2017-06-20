@@ -1,0 +1,22 @@
+{% extends "verify/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block type %} 抛硬币 {% endblock %}
+{% block type1 %} 抛硬币 {% endblock %}
+{% block type2 %} 抛硬币 {% endblock %}
+
+{% block specific_info %} 
+<ul>
+    <li> 硬币个数：{{ data['num'] }} </li>
+</ul>
+{% endblock %}
+
+{% block result %}
+    {% for coin in data['result'] %}
+        {% if coin %}
+        <img src="{{ url_for('static', filename='coin_small_1.gif', _external=True) }}" width="50" height="50" style=" margin:2px;" />
+        {% else %}
+        <img src="{{ url_for('static', filename='coin_small_0.gif', _external=True) }}" width="50" height="50" style=" margin:2px;" />
+        {% endif %}
+    {% endfor %}
+{% endblock %}

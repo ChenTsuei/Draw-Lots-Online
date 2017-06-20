@@ -1,0 +1,9 @@
+{% extends "base_wtf.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}随机分组{% endblock %}
+
+{% block form %}
+{{ wtf.form_field(form.lines) }}
+{{ wtf.form_field(form.num) }}
+{% endblock %}

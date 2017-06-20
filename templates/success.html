@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Success!{% endblock %}
+
+{% block page_content %}
+<div class="text-center">
+    <h1> 创建成功! </h1>
+    <hr />
+</div>
+快将此ULR分享给你的好友吧！<br />
+URL：<a href="{{ url_for('verify_id', url=url, _external=True) }}">{{ url_for('verify_id', url=url, _external=True) }}</a>
+{% endblock %}

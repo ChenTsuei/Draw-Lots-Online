@@ -1,0 +1,30 @@
+{% extends "verify/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block type %} 掷骰子 {% endblock %}
+{% block type1 %} 掷骰子 {% endblock %}
+{% block type2 %} 掷骰子 {% endblock %}
+
+{% block specific_info %} 
+<ul>
+    <li> 骰子个数：{{ data['num'] }} </li>
+</ul>
+{% endblock %}
+
+{% block result %}
+    {% for dice in data['result'] %}
+        {% if dice == 1 %}
+        <img src="{{ url_for('static', filename='dice_small_1.png', _external=True) }}" width="50" height="50" style=" margin:2px;" />
+        {% elif dice == 2 %}
+        <img src="{{ url_for('static', filename='dice_small_2.png', _external=True) }}" width="50" height="50" style=" margin:2px;" />
+        {% elif dice == 3 %}
+        <img src="{{ url_for('static', filename='dice_small_3.png', _external=True) }}" width="50" height="50" style=" margin:2px;" />
+        {% elif dice == 4 %}
+        <img src="{{ url_for('static', filename='dice_small_4.png', _external=True) }}" width="50" height="50" style=" margin:2px;" />
+        {% elif dice == 5 %}
+        <img src="{{ url_for('static', filename='dice_small_5.png', _external=True) }}" width="50" height="50" style=" margin:2px;" />
+        {% else %}
+        <img src="{{ url_for('static', filename='dice_small_6.png', _external=True) }}" width="50" height="50" style=" margin:2px;" />
+        {% endif %}
+    {% endfor %}
+{% endblock %}
